@@ -6,7 +6,7 @@ To view the MongoDB repo, please click
 
 ---
 # UI/UX
-# Strategy - Identifying the Users
+# Strategy
 
 ## User Goals
 ```
@@ -26,10 +26,18 @@ To view the MongoDB repo, please click
 ```
 
 # Scope
-
+```
+- Mobile responsiveness
+- High score displayed by using
+- Players should be able to submit their score with their name by using
+- Login by using
+- 
+```
 
 
 # Features
 
+# Structure
+The website will be a single page website displaying the game itself.
 
 
