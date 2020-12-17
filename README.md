@@ -29,7 +29,7 @@ To view the MongoDB repo, please click
 ```
 - Mobile responsiveness
 - Best timing always on display
-- Players should not need to create an account in order to play, but they can only input their results as guest.
+- Players should not need to create an account in order to play, but they can only input their results as a guest.
 - Players with an account can login and input their results with their username. 
 - 
 ```
