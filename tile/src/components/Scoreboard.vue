@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Leaderboard</h1>
-    <button v-on:ch5ck="loadScoreboard">View</button>
+    <button v-on:click="loadScoreboard">View</button>
     <div v-for="s in scoreboard" v-bind:key="s._id">
         <h5>Username: {{ s.username }}</h5>
         <h5>Time Taken: {{ s.scoreinSeconds }}</h5>
