@@ -3,8 +3,9 @@
     <h1>Leaderboard</h1>
     <button v-on:click="loadScoreboard">View</button>
     <div v-for="s in scoreboard" v-bind:key="s._id">
+        <!-- use bootstrap-vue or something -->
         <h5>Username: {{ s.username }}</h5>
-        <h5>Time Taken: {{ s.scoreinSeconds }}</h5>
+        <h5>Time Taken: {{ s.scoreInSeconds }}</h5>
         <h5>Date Played: {{ s.datePlayed }}</h5>
     </div>
   </div>
