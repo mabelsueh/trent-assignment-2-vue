@@ -1,7 +1,6 @@
 <template>
     <div>
-        <h1>Welcome Back</h1>
-        <!-- pls use some bootstrap thingy for this -->
+        <h1>Register</h1>
         <div>
             <label>Email: </label>
         <input type="email" />
@@ -17,7 +16,7 @@
 
 
 export default {
-    name: 'Login',
+    name: 'Register',
     components: {}
     
 }

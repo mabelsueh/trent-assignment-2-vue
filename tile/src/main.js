@@ -10,6 +10,7 @@ import Game from './components/Game'
 import TileGame from './components/TileGame'
 import Scoreboard from './components/Scoreboard'
 import Login from './components/Login'
+import Register from './components/Register'
 
 Vue.config.productionTip = false
 
@@ -18,7 +19,7 @@ const routes = [
     {path:'/play', component: TileGame},
     {path:'/scoreboard', component: Scoreboard},
     {path:'/login', component: Login},
-    // {path:'/register', component: Register}
+    {path:'/register', component: Register}
 ]
 
 const router = new VueRouter({
