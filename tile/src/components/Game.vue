@@ -1,17 +1,20 @@
 <template>
   <div>
     <h1>Nested Array</h1>
-    <table>
+    <table class="table table-borderless">
+        <tbody>
       <tr v-for="(row, rindex) in board" :key="rindex">
         <td v-for="(col, cindex) in row" :key="cindex">
           {{ col }}
         </td>
       </tr>
+        </tbody>
     </table>
   </div>
 </template>
 
 <script>
+
 // import Stack from "../data-structures/Stack";
 
 export default {
