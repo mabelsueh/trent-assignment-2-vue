@@ -17,13 +17,8 @@ export default {
   methods: {
     shuffle: function () {
       let tiles = [];
-      let n = 5;
-      for (let f = 1; f <= 9; f++) {
-        tiles.push(n);
-      }
-
-      for (let i = 1; i <= 9; i++) {
-        for (let j = 1; j <= 9; j++) {
+      for (let i = 0; i <= 39; i++) {
+        for (let j = 0; j <= 1; j++) {
           tiles.push(i);
         }
       }

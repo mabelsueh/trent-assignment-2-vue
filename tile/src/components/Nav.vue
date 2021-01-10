@@ -1,8 +1,8 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" type="dark" variant="dark">
+    <b-navbar toggleable="lg" type="light" variant="warning">
       <b-navbar-brand to="/">
-      <img src="/assets/nav-logo.png" alt="navlogo">
+      <img src="/images/nav-logo.png" alt="navlogo"/>
       </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -35,4 +35,5 @@ export default {};
 </script>
 
 <style scoped>
+
 </style>
