@@ -2,7 +2,7 @@
   <div>
     <b-navbar toggleable="lg" type="light" variant="warning">
       <b-navbar-brand to="/">
-      <img src="/images/nav-logo.png" alt="navlogo"/>
+      <img src="/images/nav-logo.png" width="70%" alt="navlogo"/>
       </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
