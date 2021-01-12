@@ -33,7 +33,7 @@ export default {
   },
   created: async function () {
       let response = await axios.get(
-        "https://3000-e476020e-f0fb-4276-a53d-413c0ee348dd.ws-us03.gitpod.io/scoreboard"
+        "https://3000-b7315246-f510-4e1a-931e-c953f9f5cf27.ws-us03.gitpod.io/scoreboard"
       );
       this.scoreboard = response.data;
     },

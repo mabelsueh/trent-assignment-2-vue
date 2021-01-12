@@ -56,7 +56,8 @@ export default {
     //   }
 
        for (let tile of tiles) {
-           this.board.push(tile)
+           this.board.push(tile);
+           console.log(tile)
       }
     }
 
