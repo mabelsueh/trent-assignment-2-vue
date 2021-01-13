@@ -9,9 +9,7 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-nav-item to="/game">Game</b-nav-item>
           <b-nav-item to="/play">Play</b-nav-item>
-          <b-nav-item to="/game2">Game2</b-nav-item>
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->

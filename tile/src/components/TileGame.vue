@@ -1,10 +1,11 @@
 <template>
   <div class="container">
-    <h1>MONSTERS MATCH</h1>
+    <h1 class="my-4">MONSTERS MATCH</h1>
     <!-- <button type="button" class="btn btn-info" v-on:click="loadTiles">
       Start
     </button> -->
-    <table class="table table-borderless">
+    <div class="row justify-content-center">
+    <table class="table table-borderless mx-auto w-auto">
       <tbody>
         <tr v-for="(row, rindex) in board" :key="rindex">
           <td v-for="(col, cindex) in row" :key="cindex">
@@ -16,25 +17,40 @@
                 newTiles[cindex * 8 + rindex] &&
                 newTiles[cindex * 8 + rindex].imageUrl
                 "
-                width="40%"
+                width="50%"
+                @click="selectTile(rindex,cindex)"
               
             />
-            <p>{{newTiles[cindex * 8 + rindex].name}}</p>
-            <!-- <img
-              :src="
-                board.imageUrl
-              "
-            /> -->
+            <!-- numbering for checking -->
+            <!-- <p>{{newTiles[cindex * 8 + rindex].name}}</p> -->
           </td>
         </tr>
       </tbody>
     </table>
+    </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import Stack from "../data-structures/Stack"
 export default {
+      data: function () {
+    return {
+        tiles: new Stack(),
+        board: [
+          ["", "", "", "", "", "", "", ""],
+          ["", "", "", "", "", "", "", ""],
+          ["", "", "", "", "", "", "", ""],
+          ["", "", "", "", "", "", "", ""],
+          ["", "", "", "", "", "", "", ""],
+          ["", "", "", "", "", "", "", ""],
+          ["", "", "", "", "", "", "", ""],
+          ["", "", "", "", "", "", "", ""],
+        ],
+        newTiles: []
+    };
+  },
   created: async function () {
     let response = await axios.get(
       "https://3000-b7315246-f510-4e1a-931e-c953f9f5cf27.ws-us03.gitpod.io/tile"
@@ -51,27 +67,6 @@ export default {
       this.newTiles[m] = this.newTiles[i];
       this.newTiles[i] = t;
     }
-    // for (let tile of newTiles) {
-    //   this.board.push(tile);
-    //   console.log(tile);
-    // }
-  },
-  data: function () {
-    return {
-        tiles: [],
-        board: [
-          ["", "", "", "", "", "", "", ""],
-          ["", "", "", "", "", "", "", ""],
-          ["", "", "", "", "", "", "", ""],
-          ["", "", "", "", "", "", "", ""],
-          ["", "", "", "", "", "", "", ""],
-          ["", "", "", "", "", "", "", ""],
-          ["", "", "", "", "", "", "", ""],
-          ["", "", "", "", "", "", "", ""],
-        ],
-        newTiles: []
-    //   board: [],
-    };
   },
   //   methods: {
   //     loadTiles: async function () {
