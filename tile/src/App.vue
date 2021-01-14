@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div >
     <!-- <Alerts message="I WILL BE MOVED TO LOGIN.VUE!"/> -->
     <Nav/>
     <router-view></router-view>
