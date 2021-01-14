@@ -1,22 +1,19 @@
 <template>
   <div>
-      <div id="logo" align="center" class="bg-warning">
-       <b-nav-item to="/" style="list-style-type: none">
-      <img src="/images/nav-logo.png" width="20%" alt="navlogo"/>
+    <div id="logo" align="center">
+      <b-nav-item to="/" style="list-style-type: none">
+        <img src="/images/nav-logo.png" width="15%" alt="navlogo" />
       </b-nav-item>
-      </div>
-      
-<div id="navlinks">
-  <b-nav align="center bg-warning">
-    <b-nav-item class="mx-4" to="/scoreboard">Leaderboard</b-nav-item>
-    <b-nav-item class="mx-4" to="/play">Play</b-nav-item>
-    <b-nav-item class="mx-4" to="/login">Login</b-nav-item>
-    <b-nav-item class="mx-4" to="/register">Register</b-nav-item>
-  </b-nav>
-</div>
-      <!-- <b-navbar-brand to="/">
-      <img src="/images/nav-logo.png" width="60%" alt="navlogo"/>
-      </b-navbar-brand> -->
+    </div>
+
+    <div id="navlinks">
+      <b-nav align="center">
+        <b-nav-item class="mx-4" to="/scoreboard">Leaderboard</b-nav-item>
+        <b-nav-item class="mx-4" to="/play">Play</b-nav-item>
+        <b-nav-item class="mx-4" to="/login">Login</b-nav-item>
+        <b-nav-item class="mx-4" to="/register">Register</b-nav-item>
+      </b-nav>
+    </div>
   </div>
 </template>
 
@@ -25,7 +22,21 @@ export default {};
 </script>
 
 <style scoped>
-nav li a {
-    color: black !important;
+@import url("https://fonts.googleapis.com/css2?family=Creepster&display=swap");
+
+#navlinks {
+  background-color: black;
+}
+
+a {
+  color: #edcd33 !important;
+  font-family: "Creepster", cursive;
+  letter-spacing: 0.2em;
+  font-size: 1.3em;
+}
+
+a:hover {
+  color: orange !important;
+  text-decoration-line: underline;
 }
 </style>

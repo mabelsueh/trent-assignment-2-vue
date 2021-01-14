@@ -5,50 +5,51 @@
       Start
     </button> -->
     <div class="row justify-content-center">
-    <table class="table table-borderless mx-auto w-auto mt-3">
-      <tbody>
-        <tr v-for="(row, rindex) in board" :key="rindex">
-          <td v-for="(col, cindex) in row" :key="cindex">
-            <!-- the && sugar syntax is needed because when page loads at created,
+      <table class="table table-borderless mx-auto w-auto mt-3">
+        <tbody>
+          <tr v-for="(row, rindex) in board" :key="rindex">
+            <td v-for="(col, cindex) in row" :key="cindex">
+              <!-- the && sugar syntax is needed because when page loads at created,
               axios is still loading and causes a delay
               as such, to vue, tile[] is undefined -->
-            <img
-              :src="
-                newTiles[cindex * 8 + rindex] &&
-                newTiles[cindex * 8 + rindex].imageUrl
+              <img
+                :src="
+                  newTiles[cindex * 8 + rindex] &&
+                  newTiles[cindex * 8 + rindex].imageUrl
                 "
-                width="65%"
-                @click="selectTile(rindex,cindex)"
-              
-            />
-            <!-- numbering for checking -->
-            <!-- <p>{{newTiles[cindex * 8 + rindex].name}}</p> -->
-          </td>
-        </tr>
-      </tbody>
-    </table>
+                width="57%"
+              />
+              <!-- put behind width -->
+              <!-- @click="selectTile(rindex,cindex)" -->
+
+              <!-- numbering for checking -->
+              <!-- <p>{{newTiles[cindex * 8 + rindex].name}}</p> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
-import Stack from "../data-structures/Stack"
+import Stack from "../data-structures/Stack";
 export default {
-      data: function () {
+  data: function () {
     return {
-        tiles: new Stack(),
-        board: [
-          ["", "", "", "", "", "", "", ""],
-          ["", "", "", "", "", "", "", ""],
-          ["", "", "", "", "", "", "", ""],
-          ["", "", "", "", "", "", "", ""],
-          ["", "", "", "", "", "", "", ""],
-          ["", "", "", "", "", "", "", ""],
-          ["", "", "", "", "", "", "", ""],
-          ["", "", "", "", "", "", "", ""],
-        ],
-        newTiles: []
+      tiles: new Stack(),
+      board: [
+        ["", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", ""],
+      ],
+      newTiles: [],
     };
   },
   created: async function () {
@@ -56,7 +57,7 @@ export default {
       "https://3000-b7315246-f510-4e1a-931e-c953f9f5cf27.ws-eu03.gitpod.io/tile"
     );
     this.tiles = response.data;
-    this.newTiles = [...this.tiles,...this.tiles];
+    this.newTiles = [...this.tiles, ...this.tiles];
     let m = this.newTiles.length,
       t,
       i;
@@ -84,8 +85,15 @@ export default {
 </script>
 
 <style scoped>
+/* .container {
+    background-image: url("https://media.giphy.com/media/26gQc8wnaYfMtqbxm/giphy.gif") !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+} */
+
 h1 {
   text-align: center;
 }
-
 </style>
