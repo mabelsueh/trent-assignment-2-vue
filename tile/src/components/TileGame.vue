@@ -1,11 +1,11 @@
 <template>
   <div class="container">
-    <h1 class="my-4">MONSTERS MATCH</h1>
+    <!-- <h1 class="my-4">MONSTERS MATCH</h1> -->
     <!-- <button type="button" class="btn btn-info" v-on:click="loadTiles">
       Start
     </button> -->
     <div class="row justify-content-center">
-    <table class="table table-borderless mx-auto w-auto">
+    <table class="table table-borderless mx-auto w-auto mt-3">
       <tbody>
         <tr v-for="(row, rindex) in board" :key="rindex">
           <td v-for="(col, cindex) in row" :key="cindex">
@@ -17,7 +17,7 @@
                 newTiles[cindex * 8 + rindex] &&
                 newTiles[cindex * 8 + rindex].imageUrl
                 "
-                width="50%"
+                width="65%"
                 @click="selectTile(rindex,cindex)"
               
             />
@@ -53,11 +53,10 @@ export default {
   },
   created: async function () {
     let response = await axios.get(
-      "https://3000-b7315246-f510-4e1a-931e-c953f9f5cf27.ws-us03.gitpod.io/tile"
+      "https://3000-b7315246-f510-4e1a-931e-c953f9f5cf27.ws-eu03.gitpod.io/tile"
     );
     this.tiles = response.data;
     this.newTiles = [...this.tiles,...this.tiles];
-    console.log(this.newTiles)
     let m = this.newTiles.length,
       t,
       i;
@@ -85,23 +84,8 @@ export default {
 </script>
 
 <style scoped>
-/* .board {
-  display: flex;
-  justify-content: center;
-  margin: auto;
-} */
-
-div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
 h1 {
   text-align: center;
 }
 
-table {
-  margin: auto;
-}
 </style>
