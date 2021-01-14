@@ -5,6 +5,7 @@
       Start
     </button> -->
     <div class="row justify-content-center">
+      <!-- style="background-image: url('https://media.giphy.com/media/26gQc8wnaYfMtqbxm/giphy.gif'); background-repeat: no-repeat; background-size: cover;" -->
       <table class="table table-borderless mx-auto w-auto mt-3">
         <tbody>
           <tr v-for="(row, rindex) in board" :key="rindex">
@@ -18,6 +19,7 @@
                   newTiles[cindex * 8 + rindex].imageUrl
                 "
                 width="57%"
+                @click="selectTile(t)"
               />
               <!-- put behind width -->
               <!-- @click="selectTile(rindex,cindex)" -->
@@ -68,20 +70,14 @@ export default {
       this.newTiles[i] = t;
     }
   },
-  //   methods: {
-  //     loadTiles: async function () {
-  //       let response = await axios.get(
-  //         "https://3000-e476020e-f0fb-4276-a53d-413c0ee348dd.ws-us03.gitpod.io/tile"
-  //       );
-  //       this.tiles = response.data;
-  //     },
-  // //     shuffle: function () {
-  // //     let defaultTiles = ...[this.tiles];
-
-  // //     }
-  // //   },
-  // }
-};
+  methods: {
+    selectTile: function (t) {
+      let compareTiles = new Stack();
+      let selected = this.newTiles[t].name;
+      compareTiles.push(selected);
+    }
+  }
+}
 </script>
 
 <style scoped>
