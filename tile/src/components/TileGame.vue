@@ -4,7 +4,7 @@
     <!-- <button type="button" class="btn btn-info" v-on:click="loadTiles">
       Start
     </button> -->
-    <div class="row justify-content-center">
+    <div class="row d-flex justify-content-center">
       <!-- style="background-image: url('https://media.giphy.com/media/26gQc8wnaYfMtqbxm/giphy.gif'); background-repeat: no-repeat; background-size: cover;" -->
       <table class="table table-borderless mx-auto w-auto mt-3">
         <tbody>
@@ -19,7 +19,7 @@
                   newTiles[cindex * 8 + rindex].imageUrl
                 "
                 width="57%"
-                @click="selectTile(t)"
+                @click="selectTile(newTiles[cindex * 8 + rindex],cindex,rindex)"
               />
               <!-- put behind width -->
               <!-- @click="selectTile(rindex,cindex)" -->
@@ -71,11 +71,14 @@ export default {
     }
   },
   methods: {
-    selectTile: function (t) {
-      let compareTiles = new Stack();
-      let selected = this.newTiles[t].name;
-      compareTiles.push(selected);
-    }
+    selectTile: function (t,c,r) {
+        // t.imageUrl="" on success, remove tiles from board
+        // check that same tile is not selected via rid & cid
+    //   let compareTiles = new Stack();
+    //   let selected = this.newTiles[t].name;
+    //   compareTiles.push(selected);
+      console.log(t,c,r)
+    } 
   }
 }
 </script>
@@ -89,7 +92,7 @@ export default {
     
 } */
 
-h1 {
+div {
   text-align: center;
 }
 </style>
