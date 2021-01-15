@@ -56,7 +56,7 @@ export default {
   },
   created: async function () {
     let response = await axios.get(
-      "https://3000-b7315246-f510-4e1a-931e-c953f9f5cf27.ws-eu03.gitpod.io/tile"
+      "https://3000-b7315246-f510-4e1a-931e-c953f9f5cf27.ws-us03.gitpod.io/tile"
     );
     this.tiles = response.data;
     this.newTiles = [...this.tiles, ...this.tiles];

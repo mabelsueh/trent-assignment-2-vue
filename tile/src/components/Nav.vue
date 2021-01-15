@@ -32,7 +32,6 @@ a {
   color: #edcd33 !important;
   font-family: "Creepster", cursive;
   letter-spacing: 0.2em;
-  font-size: 1.3em;
 }
 
 a:hover {

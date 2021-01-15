@@ -1,25 +1,26 @@
 <template>
   <div>
-    <h1>Leaderboard</h1>
-    <b-table-simple class="table">
+    <div class="container">
+      <h1 class="mt-4">Leaderboard (Top 20)</h1>
+      <b-table-simple hover class="">
         <b-thead class="header">
-
-            <b-tr>
-                <b-th>Username</b-th>
-                <b-th>Score</b-th>
-                <b-th>Date Played</b-th>
-            </b-tr>
+          <b-tr>
+            <b-th>Rank</b-th>
+            <b-th>Username</b-th>
+            <b-th>Score</b-th>
+            <b-th>Date Played</b-th>
+          </b-tr>
         </b-thead>
         <b-tbody>
-            <b-tr v-for="s in scoreboard.slice(0,10)" v-bind:key="s._id">
-        <b-td>{{ s.username }}</b-td>
-        <b-td>{{ s.score }}</b-td>
-        <b-td>{{ s.datePlayed }}</b-td>
-            </b-tr>
+          <b-tr v-for="(s,i) in scoreSort.slice(0, 20)" v-bind:key="s._id">
+            <b-td>{{ i+1 }}</b-td>
+            <b-td>{{ s.username }}</b-td>
+            <b-td>{{ s.score }}</b-td>
+            <b-td>{{ s.datePlayed }}</b-td>
+          </b-tr>
         </b-tbody>
-    </b-table-simple>
-
-
+      </b-table-simple>
+    </div>
   </div>
 </template>
 
@@ -28,25 +29,29 @@ import axios from "axios";
 export default {
   data: function () {
     return {
-      'scoreboard': [],
+      scoreboard: [],
     };
   },
   created: async function () {
-      let response = await axios.get(
-        "https://3000-b7315246-f510-4e1a-931e-c953f9f5cf27.ws-eu03.gitpod.io/scoreboard"
-      );
-      this.scoreboard = response.data;
+    let response = await axios.get(
+      "https://3000-b7315246-f510-4e1a-931e-c953f9f5cf27.ws-us03.gitpod.io/scoreboard"
+    );
+    this.scoreboard = response.data;
+  },
+  computed: {
+    scoreSort: function () {
+      let scoreSort = this.scoreboard.slice(0);
+      scoreSort.sort(function (x, y) {
+        return y.score - x.score;
+      });
+      return scoreSort;
     },
+  },
 };
 </script>
 
 <style scoped>
-#Scoreboard{
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.container {
+    text-align: center;
 }
 </style>
