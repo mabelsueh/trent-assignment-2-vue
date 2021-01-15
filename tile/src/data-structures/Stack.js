@@ -1,15 +1,12 @@
 class Stack {
   items = [];
-  // to put an item at the top of the stack
+  // add item to top of stack
   push(data) {
-    // the JS array.push add the data as the last element
     this.items.push(data);
   }
 
-  // is to remove from the top of the stack
+  // removes top most element
   pop() {
-    // the JS array.pop removes the last element
-    // and returns it
     return this.items.pop();
   }
 
@@ -25,6 +22,12 @@ class Stack {
   getLength() {
       return this.items.length;
   }
+
+//   clear stack
+clear() {
+    this.items = [];
+    return this.items;
+}
 
 }
 

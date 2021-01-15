@@ -24,9 +24,9 @@ export default {};
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Creepster&display=swap");
 
-/* #navlinks {
+#navlinks {
   background-color: black;
-} */
+}
 
 a {
   color: #edcd33 !important;

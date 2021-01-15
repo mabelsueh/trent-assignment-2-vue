@@ -16,5 +16,12 @@ export default {
 </script>
 
 <style scoped>
+div {
+    background-image: url("https://media.giphy.com/media/f4IjBQupqojhqQzKk2/giphy.gif") !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
 
 </style>

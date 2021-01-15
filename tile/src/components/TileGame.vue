@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <!-- <h1 class="my-4">MONSTERS MATCH</h1> -->
     <!-- <button type="button" class="btn btn-info" v-on:click="loadTiles">
       Start
     </button> -->
@@ -52,7 +51,7 @@ export default {
   },
   created: async function () {
     let response = await axios.get(
-      "https://3000-b7315246-f510-4e1a-931e-c953f9f5cf27.ws-us03.gitpod.io/tile"
+      "https://mseh-trent-assignment-2.herokuapp.com/tile"
     );
     this.tiles = response.data;
     this.newTiles = [...this.tiles, ...this.tiles];
@@ -81,7 +80,7 @@ export default {
 
 <style scoped>
 /* .container {
-    background-image: url("https://media.giphy.com/media/26gQc8wnaYfMtqbxm/giphy.gif") !important;
+    background-image: url("https://media.giphy.com/media/f4IjBQupqojhqQzKk2/giphy.gif") !important;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
