@@ -6,7 +6,7 @@
     </button> -->
     <div class="row d-flex justify-content-center">
       <!-- style="background-image: url('https://media.giphy.com/media/26gQc8wnaYfMtqbxm/giphy.gif'); background-repeat: no-repeat; background-size: cover;" -->
-      <table class="table table-borderless mx-auto w-auto mt-3">
+      <table class="table table-borderless mx-auto w-auto mt-2">
         <tbody>
           <tr v-for="(row, rindex) in board" :key="rindex">
             <td v-for="(col, cindex) in row" :key="cindex">
@@ -15,17 +15,15 @@
               as such, to vue, tile[] is undefined -->
               <img
                 :src="
-                  newTiles[cindex * 8 + rindex] &&
-                  newTiles[cindex * 8 + rindex].imageUrl
+                  newTiles[cindex * 6 + rindex] &&
+                  newTiles[cindex * 6 + rindex].imageUrl
                 "
-                width="57%"
-                @click="selectTile(newTiles[cindex * 8 + rindex],cindex,rindex)"
+                width="60%"
+                @click="selectTile(newTiles[cindex * 6 + rindex],cindex,rindex)"
               />
-              <!-- put behind width -->
-              <!-- @click="selectTile(rindex,cindex)" -->
 
               <!-- numbering for checking -->
-              <!-- <p>{{newTiles[cindex * 8 + rindex].name}}</p> -->
+              <!-- <p>{{newTiles[cindex * 6 + rindex].name}}</p> -->
             </td>
           </tr>
         </tbody>
@@ -42,14 +40,12 @@ export default {
     return {
       tiles: new Stack(),
       board: [
-        ["", "", "", "", "", "", "", ""],
-        ["", "", "", "", "", "", "", ""],
-        ["", "", "", "", "", "", "", ""],
-        ["", "", "", "", "", "", "", ""],
-        ["", "", "", "", "", "", "", ""],
-        ["", "", "", "", "", "", "", ""],
-        ["", "", "", "", "", "", "", ""],
-        ["", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", ""],
+        ["", "", "", "", "", ""],
+        ["", "", "", "", "", ""],
+        ["", "", "", "", "", ""],
+        ["", "", "", "", "", ""],
+        ["", "", "", "", "", ""]
       ],
       newTiles: [],
     };
@@ -94,5 +90,9 @@ export default {
 
 div {
   text-align: center;
+}
+
+@media only screen and ( max-width: 736px ) {
+img.responsive { width: 38%; }
 }
 </style>
