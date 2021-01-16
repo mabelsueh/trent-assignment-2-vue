@@ -4,7 +4,6 @@
       Start
     </button> -->
     <div class="row d-flex justify-content-center">
-      <!-- style="background-image: url('https://media.giphy.com/media/26gQc8wnaYfMtqbxm/giphy.gif'); background-repeat: no-repeat; background-size: cover;" -->
       <table class="table table-borderless mx-auto w-auto mt-2">
         <tbody>
           <tr v-for="(row, rindex) in board" :key="rindex">
@@ -18,7 +17,9 @@
                   newTiles[cindex * 6 + rindex].imageUrl
                 "
                 width="60%"
-                @click="selectTile(newTiles[cindex * 6 + rindex],cindex,rindex)"
+                @click="
+                  selectTile(newTiles[cindex * 6 + rindex], cindex, rindex)
+                "
               />
 
               <!-- numbering for checking -->
@@ -44,7 +45,7 @@ export default {
         ["", "", "", "", "", ""],
         ["", "", "", "", "", ""],
         ["", "", "", "", "", ""],
-        ["", "", "", "", "", ""]
+        ["", "", "", "", "", ""],
       ],
       newTiles: [],
     };
@@ -66,16 +67,32 @@ export default {
     }
   },
   methods: {
-    selectTile: function (t,c,r) {
-        // t.imageUrl="" on success, remove tiles from board
-        // check that same tile is not selected via rid & cid
-    //   let compareTiles = new Stack();
-    //   let selected = this.newTiles[t].name;
-    //   compareTiles.push(selected);
-      console.log(t,c,r)
-    } 
-  }
-}
+    //   @start, create new Stack array ( & clear stack??)
+    selectTile: function (t, c, r) {
+        // t = newTiles[cindex * 6 + rindex], c = cid, r = rid
+      let compareTiles = new Stack();
+      console.log(compareTiles);
+      // select card 1, assign to var selectedCard1 & push to stack
+      let selectedCard1 = this.newTiles[t].name;
+      console.log(this.newTiles[t])
+      compareTiles.push(selectedCard1);
+      console.log(compareTiles);
+      
+      // select card 2, assign to var selectedCard2 & push to stack
+      // prevent selecting same card using cid & rid (cause they are duplicates)
+
+      // check for match via peek????????????????????????
+
+      // if match, pop both from stack & change t.imageUrl to ""/null
+
+      // if don't match, clear stack
+
+      // t.imageUrl="" on success, remove tiles from board
+      // check that same tile is not selected via rid & cid 
+      console.log(t, c, r);
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -91,7 +108,9 @@ div {
   text-align: center;
 }
 
-@media only screen and ( max-width: 736px ) {
-img.responsive { width: 38%; }
+@media only screen and (max-width: 736px) {
+  img.responsive {
+    width: 38%;
+  }
 }
 </style>

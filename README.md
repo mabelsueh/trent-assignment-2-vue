@@ -1,5 +1,9 @@
-# Assignment 2 - Tile Matching Game (Vue)
+# Assignment 2 - Match The Monsters
+### A tile matching game built with Vue
 
+Click 
+[here](https://mabelsueh.github.io/trent-assignment-2-vue/)
+to play!
 
 To view the MongoDB repo, please click
 [here](https://github.com/mabelsueh/trent-assignment-2).

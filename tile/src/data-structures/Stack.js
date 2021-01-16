@@ -1,8 +1,8 @@
 class Stack {
   items = [];
-  // add item to top of stack
-  push(data) {
-    this.items.push(data);
+  // adds tile to top of stack
+  push(tile) {
+    this.items.push(tile);
   }
 
   // removes top most element
