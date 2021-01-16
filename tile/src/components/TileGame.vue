@@ -48,6 +48,8 @@ export default {
         ["", "", "", "", "", ""],
       ],
       newTiles: [],
+      compareTiles: new Stack(),
+      checkPosition: [],
     };
   },
   created: async function () {
@@ -67,28 +69,58 @@ export default {
     }
   },
   methods: {
-    //   @start, create new Stack array ( & clear stack??)
+    //   @start: clear stack??????????????????????????????????????
     selectTile: function (t, c, r) {
-        // t = newTiles[cindex * 6 + rindex], c = cid, r = rid
-      let compareTiles = new Stack();
-      console.log(compareTiles);
-      // select card 1, assign to var selectedCard1 & push to stack
-      let selectedCard1 = this.newTiles[t].name;
-      console.log(this.newTiles[t])
-      compareTiles.push(selectedCard1);
-      console.log(compareTiles);
-      
-      // select card 2, assign to var selectedCard2 & push to stack
+      console.log("starting length is: " + this.compareTiles.getLength());
+      console.log("current selected tile is: " + t.name);
+      console.log("t/c/r are: ");
+      console.log(t);
+      console.log(c);
+      console.log(r);
+
+      let position = c * 6 + r;
+      if (this.compareTiles.getLength() < 2) {
+        if (this.checkPosition[0] != position) {
+          this.compareTiles.push(t.name);
+          this.checkPosition.push(position);
+          let selectedCard1 = this.compareTiles.items[0];
+
+          console.log("card 1 is " + selectedCard1);
+          console.log("position recorded is: " + this.checkPosition[0]);
+          console.log(position);
+          console.log("end of card 1");
+        }
+      }
+
+      console.log("see stack below: ");
+      console.log(this.compareTiles);
+      console.log("current length is: " + this.compareTiles.getLength());
+      console.log("last selected tile is: " + this.compareTiles.peek());
+
       // prevent selecting same card using cid & rid (cause they are duplicates)
 
-      // check for match via peek????????????????????????
+      // check for match via peek using another method????????????????????????
+      // paul's uno discard
+      //   checkCanDiscard: function (card) {
+      // a card will be a key-value pair of suit and color
+      // example:
+      // {
+      //  value: 3,
+      //  suit: 'red'
+      // }
+      //   let topCard = this.discard.peek();
+      //   if (card.suit == topCard.suit || card.value == topCard.value) {
+      //     return true;
+      //   } else {
+      //     return false;
+      //   }
 
       // if match, pop both from stack & change t.imageUrl to ""/null
 
       // if don't match, clear stack
 
       // t.imageUrl="" on success, remove tiles from board
-      // check that same tile is not selected via rid & cid 
+      // check that same tile is not selected via rid & cid
       console.log(t, c, r);
     },
   },
