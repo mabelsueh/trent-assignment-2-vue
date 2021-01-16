@@ -2,7 +2,7 @@
   <div>
     <div class="container">
       <h1 class="mt-4">Leaderboard (Top 20)</h1>
-      <b-table-simple hover class="">
+      <b-table-simple class="">
         <b-thead class="header">
           <b-tr>
             <b-th>Rank</b-th>
@@ -60,4 +60,5 @@ export default {
 h1 {
     color: white;
 }
+
 </style>

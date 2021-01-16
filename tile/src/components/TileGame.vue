@@ -18,7 +18,7 @@
                 "
                 width="60%"
                 @click="
-                  selectTile(newTiles[cindex * 6 + rindex], cindex, rindex)
+                  selectTile(newTiles[cindex * 6 + rindex])
                 "
               />
 
@@ -79,17 +79,17 @@ export default {
         if (this.checkPosition[0] != position) {
           this.compareTiles.push(t.name);
           this.checkPosition.push(position);
-          let selectedCard1 = this.compareTiles.items[0];
+        //   let selectedCard1 = this.compareTiles.items[0];
 
-          console.log("selectedCardName is " + selectedCard1);
-          console.log("position recorded is: " + this.checkPosition[0]);
-          console.log("current position is: " + position);
-          console.log("end of card");
-          console.log("see stack below: ");
-          console.log(this.compareTiles);
-          console.log("current length is: " + this.compareTiles.getLength());
-          console.log("last selected tile is: " + this.compareTiles.peek());
-          console.log("end of selection")
+        //   console.log("selectedCardName is " + selectedCard1);
+        //   console.log("position recorded is: " + this.checkPosition[0]);
+        //   console.log("current position is: " + position);
+        //   console.log("end of card");
+        //   console.log("see stack below: ");
+        //   console.log(this.compareTiles);
+        //   console.log("current length is: " + this.compareTiles.getLength());
+        //   console.log("last selected tile is: " + this.compareTiles.peek());
+        //   console.log("end of selection")
         }
         if (
           this.compareTiles.getLength() == 2 &&
@@ -97,9 +97,9 @@ export default {
         ) {
           this.compareTiles.clear();
           this.checkPosition = [];
-          console.log("cards don't match");
-          console.log("reset checkPosition: " + this.checkPosition[0]);
-          console.log("after cleared length is: " + this.compareTiles.getLength());
+        //   console.log("cards don't match");
+        //   console.log("reset checkPosition: " + this.checkPosition[0]);
+        //   console.log("after cleared length is: " + this.compareTiles.getLength());
         } else if (
           this.compareTiles.getLength() == 2 &&
           this.compareTiles.items[0] == this.compareTiles.items[1]
@@ -109,61 +109,27 @@ export default {
           this.checkPosition = [];
           t.imageUrl = "";
           this.remainingTiles -= 2;
-          console.log("cards match!");
-          console.log("reset checkPosition: " + this.checkPosition[0]);
-          console.log("after matched length is: " + this.compareTiles.getLength());
-          console.log("remainingTiles is: " + this.remainingTiles);
+        //   console.log("cards match!");
+        //   console.log("reset checkPosition: " + this.checkPosition[0]);
+        //   console.log("after matched length is: " + this.compareTiles.getLength());
+        //   console.log("remainingTiles is: " + this.remainingTiles);
+        //   console.log(this.newTiles)
         }
 
         if (this.remainingTiles === 0) {
           alert("Congratulations! Board cleared!");
         }
       }
-
-      //   console.log("see stack below: ");
-      //   console.log(this.compareTiles);
-      //   console.log("current length is: " + this.compareTiles.getLength());
-      //   console.log("last selected tile is: " + this.compareTiles.peek());
-
       // prevent selecting same card using cid & rid (cause they are duplicates)
-
-      // check for match via peek using another method????????????????????????
-      // paul's uno discard
-      //   checkCanDiscard: function (card) {
-      // a card will be a key-value pair of suit and color
-      // example:
-      // {
-      //  value: 3,
-      //  suit: 'red'
-      // }
-      //   let topCard = this.discard.peek();
-      //   if (card.suit == topCard.suit || card.value == topCard.value) {
-      //     return true;
-      //   } else {
-      //     return false;
-      //   }
-
       // if match, pop both from stack & change t.imageUrl to ""/null
-
       // if don't match, clear stack
-
       // t.imageUrl="" on success, remove tiles from board
-      // check that same tile is not selected via rid & cid
-      console.log(t, c, r);
     },
   },
 };
 </script>
 
 <style scoped>
-/* .container {
-    background-image: url("https://media.giphy.com/media/f4IjBQupqojhqQzKk2/giphy.gif") !important;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    
-} */
-
 div {
   text-align: center;
 }
