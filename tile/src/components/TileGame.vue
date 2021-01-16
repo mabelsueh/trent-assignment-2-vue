@@ -50,6 +50,7 @@ export default {
       newTiles: [],
       compareTiles: new Stack(),
       checkPosition: [],
+      remainingTiles: 36,
     };
   },
   created: async function () {
@@ -72,11 +73,6 @@ export default {
     //   @start: clear stack??????????????????????????????????????
     selectTile: function (t, c, r) {
       console.log("starting length is: " + this.compareTiles.getLength());
-      console.log("current selected tile is: " + t.name);
-      console.log("t/c/r are: ");
-      console.log(t);
-      console.log(c);
-      console.log(r);
 
       let position = c * 6 + r;
       if (this.compareTiles.getLength() < 2) {
@@ -85,17 +81,49 @@ export default {
           this.checkPosition.push(position);
           let selectedCard1 = this.compareTiles.items[0];
 
-          console.log("card 1 is " + selectedCard1);
+          console.log("selectedCardName is " + selectedCard1);
           console.log("position recorded is: " + this.checkPosition[0]);
-          console.log(position);
-          console.log("end of card 1");
+          console.log("current position is: " + position);
+          console.log("end of card");
+          console.log("see stack below: ");
+          console.log(this.compareTiles);
+          console.log("current length is: " + this.compareTiles.getLength());
+          console.log("last selected tile is: " + this.compareTiles.peek());
+          console.log("end of selection")
+        }
+        if (
+          this.compareTiles.getLength() == 2 &&
+          this.compareTiles.items[0] !== this.compareTiles.items[1]
+        ) {
+          this.compareTiles.clear();
+          this.checkPosition = [];
+          console.log("cards don't match");
+          console.log("reset checkPosition: " + this.checkPosition[0]);
+          console.log("after cleared length is: " + this.compareTiles.getLength());
+        } else if (
+          this.compareTiles.getLength() == 2 &&
+          this.compareTiles.items[0] == this.compareTiles.items[1]
+        ) {
+          this.compareTiles.items.pop();
+          this.compareTiles.items.pop();
+          this.checkPosition = [];
+          t.imageUrl = "";
+          this.remainingTiles -= 2;
+          console.log("cards match!");
+          console.log("reset checkPosition: " + this.checkPosition[0]);
+          console.log("after matched length is: " + this.compareTiles.getLength());
+          console.log("remainingTiles is: " + this.remainingTiles);
+        }
+
+        if (this.remainingTiles === 0) {
+          alert("Congratulations! Board cleared!");
         }
       }
 
-      console.log("see stack below: ");
-      console.log(this.compareTiles);
-      console.log("current length is: " + this.compareTiles.getLength());
-      console.log("last selected tile is: " + this.compareTiles.peek());
+      //   console.log("see stack below: ");
+      //   console.log(this.compareTiles);
+      //   console.log("current length is: " + this.compareTiles.getLength());
+      //   console.log("last selected tile is: " + this.compareTiles.peek());
 
       // prevent selecting same card using cid & rid (cause they are duplicates)
 
