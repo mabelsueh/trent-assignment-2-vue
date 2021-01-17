@@ -153,7 +153,7 @@ export default {
     },
     insertScore: async function () {
       await axios.post(
-        "https://8080-b7315246-f510-4e1a-931e-c953f9f5cf27.ws-us03.gitpod.io/scoreboard/create",
+        "https://mseh-trent-assignment-2.herokuapp.com/scoreboard/create",
         this.playerScore
       );
     },

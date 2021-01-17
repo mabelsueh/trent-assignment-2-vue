@@ -43,7 +43,7 @@ export default {
   methods: {
     adminLogin: async function () {
       let response = await axios.get(
-        "https://8080-b7315246-f510-4e1a-931e-c953f9f5cf27.ws-us03.gitpod.io/users"
+        "https://mseh-trent-assignment-2.herokuapp.com/users"
       );
       this.users = response.data;
       this.error = "";
