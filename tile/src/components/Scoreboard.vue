@@ -8,7 +8,7 @@
             <b-th>Rank</b-th>
             <b-th>Username</b-th>
             <b-th>Score</b-th>
-            <b-th>Date Played</b-th>
+            <!-- <b-th>Date Played</b-th> -->
           </b-tr>
         </b-thead>
         <b-tbody>
@@ -16,7 +16,7 @@
             <b-td>{{ i+1 }}</b-td>
             <b-td>{{ s.username }}</b-td>
             <b-td>{{ s.score }}</b-td>
-            <b-td>{{ s.datePlayed }}</b-td>
+            <!-- <b-td>{{ s.datePlayed }}</b-td> -->
           </b-tr>
         </b-tbody>
       </b-table-simple>
