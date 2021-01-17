@@ -31,49 +31,36 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
 export default {
-    data:function(){
-        return {
-            vModelUserLogin:"",
-            vModelUserPw:"",
-            loginError:"",
-        }
+  data: function () {
+    return {
+      vModelUserLogin: "",
+      vModelUserPw: "",
+      loginError: "",
+    };
+  },
+  methods: {
+    adminLogin: async function () {
+      let response = await axios.get(
+        "https://8080-b7315246-f510-4e1a-931e-c953f9f5cf27.ws-us03.gitpod.io/users"
+      );
+      this.users = response.data;
+      this.error = "";
+
+      if (
+        this.vModelUserLogin.username === this.users.username &&
+        this.vModelUserPw.password === this.users.password
+      ) {
+        this.loginError = "";
+        alert("Logged In");
+        this.$router.push("manage");
+      } else {
+        this.loginError = "Incorrect Password";
+      }
     },
-    methods:{
-        adminLogin:async function(){
-            let response = await axios.get('https://8080-b7315246-f510-4e1a-931e-c953f9f5cf27.ws-us03.gitpod.io/users')
-            this.users=response.data
-            this.error ="";
-
-            if (this.vModelUserLogin.username ===this.users.username) {
-                if (this.vModelUserPw.password === this.users.password){
-                    this.loginError = "";
-                    alert("Logged In");
-                    this.$router.push("manage");
-                } else {
-                    this.loginError = "Incorrect Password";
-                }
-            }
-        }
-    }
-        //     let currentUser = []
-        //     for(let user of this.users){
-        //         currentUser.push(user.username)
-        //     }
-        //     if(currentUser.includes(this.vModelUserLogin) === true){
-        //         let usernameIndex = currentUser.indexOf(this.vModelUserLogin)
-        //         if(this.vModelUserPw === this.users[usernameIndex].password){
-        //             this.loginError = ""
-        //             alert("Logged in")
-        //         } else{
-        //             this.loginError = "Incorrect Password"
-        //         }
-        //     } 
-        // }
-    
-}
-
+  },
+};
 </script> 
 
 <style scoped>
