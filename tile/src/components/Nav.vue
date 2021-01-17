@@ -10,8 +10,8 @@
       <b-nav align="center">
         <b-nav-item class="mx-4" to="/scoreboard">Leaderboard</b-nav-item>
         <!-- <b-nav-item class="mx-4" to="/play">Start Playing</b-nav-item> -->
-        <!-- <b-nav-item class="mx-4" to="/login">Login</b-nav-item>
-        <b-nav-item class="mx-4" to="/register">Register</b-nav-item> -->
+        <!-- <b-nav-item class="mx-4" to="/login">Login</b-nav-item> -->
+        <!-- <b-nav-item class="mx-4" to="/register">Register</b-nav-item> -->
       </b-nav>
     </div>
   </div>
