@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="logo" align="center" class="mb-0">
-      <b-nav-item to="/play" style="list-style-type: none">
+      <b-nav-item to="/" style="list-style-type: none">
         <img src="images/nav-logo.png" width="15%" alt="navlogo" />
       </b-nav-item>
     </div>

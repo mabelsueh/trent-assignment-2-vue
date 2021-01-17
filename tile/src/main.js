@@ -14,7 +14,7 @@ import Manage from './components/Manage'
 Vue.config.productionTip = false
 
 const routes = [
-    {path:'/play', component: TileGame},
+    {path:'/', component: TileGame},
     {path:'/scoreboard', component: Scoreboard},
     {path:'/login', component: Login},
     {path:'/Manage', component: Manage}
