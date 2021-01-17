@@ -1,6 +1,5 @@
 <template>
-  <div >
-    <!-- <Alerts message="I WILL BE MOVED TO LOGIN.VUE!"/> -->
+  <div>
     <Nav/>
     <router-view></router-view>
   </div>
@@ -16,7 +15,11 @@ export default {
 </script>
 
 <style scoped>
-div {
+#app{
+    min-height: 100vh;
+    
+}
+ div {
     background-image: url("https://media.giphy.com/media/f4IjBQupqojhqQzKk2/giphy.gif") !important;
     background-position: center;
     background-repeat: no-repeat;
