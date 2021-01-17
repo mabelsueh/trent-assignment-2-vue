@@ -18,7 +18,7 @@
                 "
                 width="60%"
                 @click="
-                  selectTile(newTiles[cindex * 6 + rindex])
+                  selectTile(newTiles[cindex * 6 + rindex],cindex, rindex)
                 "
               />
 
@@ -72,16 +72,14 @@ export default {
   methods: {
     //   @start: clear stack??????????????????????????????????????
     selectTile: function (t, c, r) {
-      console.log("starting length is: " + this.compareTiles.getLength());
+    //   console.log("starting length is: " + this.compareTiles.getLength());
 
       let position = c * 6 + r;
       if (this.compareTiles.getLength() < 2) {
         if (this.checkPosition[0] != position) {
           this.compareTiles.push(t.name);
           this.checkPosition.push(position);
-        //   let selectedCard1 = this.compareTiles.items[0];
 
-        //   console.log("selectedCardName is " + selectedCard1);
         //   console.log("position recorded is: " + this.checkPosition[0]);
         //   console.log("current position is: " + position);
         //   console.log("end of card");
@@ -113,7 +111,7 @@ export default {
         //   console.log("reset checkPosition: " + this.checkPosition[0]);
         //   console.log("after matched length is: " + this.compareTiles.getLength());
         //   console.log("remainingTiles is: " + this.remainingTiles);
-        //   console.log(this.newTiles)
+        //   console.log(t,c,r)
         }
 
         if (this.remainingTiles === 0) {
