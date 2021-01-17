@@ -9,7 +9,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import TileGame from './components/TileGame'
 import Scoreboard from './components/Scoreboard'
 import Login from './components/Login'
-import Register from './components/Register'
+import Manage from './components/Manage'
 
 Vue.config.productionTip = false
 
@@ -17,7 +17,7 @@ const routes = [
     {path:'/play', component: TileGame},
     {path:'/scoreboard', component: Scoreboard},
     {path:'/login', component: Login},
-    {path:'/register', component: Register}
+    {path:'/Manage', component: Manage}
 ]
 
 const router = new VueRouter({
