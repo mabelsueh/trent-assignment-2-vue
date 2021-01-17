@@ -34,10 +34,10 @@ The objective of this website is to allow children, or adults if they'd like, to
 ### Structure
 The website is designed to be simple and intuitive to navigate, with minimal functions and routes. On the main page, users are prompted to key in their preferred username, and on submission they will be directed to the main game page where they can begin matching the monsters while seeing their score increase. When they finish matching the tiles, they will be alerted with a congratulatory message which displays the tallied score. 
 
-Wireframe for the homepage (username input)
+Wireframe for the homepage (username input)<br>
 ![alt text](tile/public/images/rm/rmwfinit.png)
-
-Wireframe for the game page
+<br>
+Wireframe for the game page<br>
 ![alt text](/tile/public/images/rm/rmwfboard.png)
 
 ### Color & Font Choice
