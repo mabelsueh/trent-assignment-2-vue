@@ -1,29 +1,84 @@
 <template>
-    <div>
-        <div class="container">
-        <h1>Welcome Back</h1>
-        <div>
-           <!-- <b-form-group id="formgroup">
-             <b-form-input type="text" label="username" placeholder="Enter Username" autocomplete="off" class="mb-2" v-model="loginUsername"/>
-             <b-form-input type="password" label="Password" size="sm" placeholder="Enter Password" v-model="loginPassword"/>
-             <p v-bind:style="{color:errorMsgColor}">{{passwordErrorMsg}}</p>
-             <b-button v-on:click="userLogin" variant="danger" size="sm">Login</b-button> -->
-           <!-- </b-form-group> -->
-        </div>
-        </div>
+  <div>
+    <div class="container">
+      <h1>Admin Login</h1>
+      <div>
+        <b-form-group id="formgroup">
+          <label>Username:</label>
+          <b-form-input
+            type="text"
+            label="username"
+            class="mb-2"
+            v-model="vModelUserLogin"
+          />
+          <label>Password:</label>
+          <b-form-input
+            type="password"
+            label="password"
+            size="sm"
+            v-model="vModelUserPw"
+          />
+          <p v-bind:style="{ color: 'red', fontSize: '15px' }">
+            {{ loginError }}
+          </p>
+          <b-button v-on:click="adminLogin" variant="warning" size="sm"
+            >Login</b-button
+          >
+        </b-form-group>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
-
-
+import axios from 'axios'
 export default {
-    name: 'Login',
-    components: {}
+    data:function(){
+        return {
+            vModelUserLogin:"",
+            vModelUserPw:"",
+            loginError:"",
+        }
+    },
+    methods:{
+        adminLogin:async function(){
+            let response = await axios.get('https://8080-b7315246-f510-4e1a-931e-c953f9f5cf27.ws-us03.gitpod.io/users')
+            this.users=response.data
+            this.error ="";
+
+            if (this.vModelUserLogin.username ===this.users.username) {
+                if (this.vModelUserPw.password === this.users.password){
+                    this.loginError = "";
+                    alert("Logged In");
+                    this.$router.push("manage");
+                } else {
+                    this.loginError = "Incorrect Password";
+                }
+            }
+        }
+    }
+        //     let currentUser = []
+        //     for(let user of this.users){
+        //         currentUser.push(user.username)
+        //     }
+        //     if(currentUser.includes(this.vModelUserLogin) === true){
+        //         let usernameIndex = currentUser.indexOf(this.vModelUserLogin)
+        //         if(this.vModelUserPw === this.users[usernameIndex].password){
+        //             this.loginError = ""
+        //             alert("Logged in")
+        //         } else{
+        //             this.loginError = "Incorrect Password"
+        //         }
+        //     } 
+        // }
     
 }
-</script>
+
+</script> 
 
 <style scoped>
-
-</style>
+.container {
+  color: white;
+  font-weight: bold !important;
+}
+</style> -->
