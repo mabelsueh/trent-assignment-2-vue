@@ -1,11 +1,15 @@
 <template>
   <div>
-    <BeginGame class="playerName" v-if="gameState == 'input_name'" @beginGameEvent="beginGame" />
+    <BeginGame
+      class="playerName"
+      v-if="gameState == 'input_name'"
+      @beginGameEvent="beginGame"
+    />
     <div id="game" v-if="gameState == 'player_turn'">
       <div class="container">
         <div class="gamepage">
           <div class="score">
-            <h2>Player: {{ newPlayerName }}</h2>
+            <h4>Points: {{ points }}</h4>
           </div>
           <div class="row d-flex justify-content-center">
             <table class="table table-borderless mx-auto w-auto mt-2">
@@ -68,12 +72,14 @@ export default {
       remainingTiles: 36,
       gameState: "",
       newPlayerName: this.playerName,
+      points: 0,
+      playerScore: {
+        name: "",
+        score: "",
+      },
     };
   },
-  props: [
-      "playerName",
-    //   "time,"
-  ],
+  props: ["playerName"],
   created: async function () {
     let response = await axios.get(
       "https://mseh-trent-assignment-2.herokuapp.com/tile"
@@ -129,33 +135,43 @@ export default {
           this.checkPosition = [];
           t.imageUrl = "";
           this.remainingTiles -= 2;
-          this.points +=20;
+          this.points += 20;
           //   console.log("cards match!");
           //   console.log("reset checkPosition: " + this.checkPosition[0]);
           //   console.log("after matched length is: " + this.compareTiles.getLength());
           //   console.log("remainingTiles is: " + this.remainingTiles);
           //   console.log(t,c,r)
+          //   console.log(this.points)
         }
-
         if (this.remainingTiles === 0) {
           this.gameState = "end_turn";
         }
       }
     },
-    
     beginGame: function () {
       this.gameState = "player_turn";
     },
-    
-   },
+    insertScore: async function () {
+      await axios.post(
+        "https://8080-b7315246-f510-4e1a-931e-c953f9f5cf27.ws-us03.gitpod.io/scoreboard/create",
+        this.playerScore
+      );
+    },
+  },
   watch: {
     gameState: function () {
       if (this.gameState === "player_turn") {
         // do something that allows them to play game
       }
       if (this.gameState === "end_turn") {
-        alert("Congratulations! Board cleared!");
+        alert(
+          "Congratulations! Board cleared! Your have scored " +
+            this.points +
+            "points!"
+        );
+        this.insertScore();
         // input score thingy
+        this.$router.push("scoreboard");
       }
     },
   },
@@ -163,8 +179,15 @@ export default {
 </script>
 
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Creepster&display=swap");
 div {
   text-align: center;
+}
+
+h4 {
+  color: #edcd33 !important;
+  font-family: "Creepster", cursive;
+  /* letter-spacing: 0.3em; */
 }
 
 @media only screen and (max-width: 736px) {
