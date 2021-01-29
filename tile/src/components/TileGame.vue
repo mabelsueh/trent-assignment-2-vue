@@ -9,6 +9,7 @@
       <div class="container">
         <div class="gamepage">
           <div class="score">
+              <h4 v-on:newPlayerName="abc">{{name123}}</h4>
             <h4>Points: {{ points }}</h4>
           </div>
           <div class="row d-flex justify-content-center">
@@ -71,15 +72,12 @@ export default {
       checkPosition: [],
       remainingTiles: 36,
       gameState: "",
-      newPlayerName: this.playerName,
+    //   newPlayerName: this.playerName,
+    name123: "",
       points: 0,
-      playerScore: {
-        name: "",
-        score: "",
-      },
     };
   },
-  props: ["playerName"],
+//   props: ["newPlayerName"],
   created: async function () {
     let response = await axios.get(
       "https://mseh-trent-assignment-2.herokuapp.com/tile"
@@ -98,6 +96,12 @@ export default {
     this.gameState = "input_name";
   },
   methods: {
+      abc: function (newName) {
+          this.name123 = newName;
+          console.log(this.name123)
+
+
+      },
     //   @start: clear stack??????????????????????????????????????
     selectTile: function (t, c, r) {
       //   console.log("starting length is: " + this.compareTiles.getLength());
@@ -154,8 +158,15 @@ export default {
     insertScore: async function () {
       await axios.post(
         "https://mseh-trent-assignment-2.herokuapp.com/scoreboard/create",
-        this.playerScore
+        {
+        username: "mabel",
+        score: this.points
+        }
       );
+      console.log("added to scoreboard")
+      console.log(this.points)
+      console.log(this.newPlayerName)
+      this.$router.push("scoreboard");
     },
   },
   watch: {
@@ -171,7 +182,7 @@ export default {
         );
         this.insertScore();
         // input score thingy
-        this.$router.push("scoreboard");
+    
       }
     },
   },

@@ -45,18 +45,23 @@ export default {
       let response = await axios.get(
         "https://mseh-trent-assignment-2.herokuapp.com/users"
       );
-      this.users = response.data;
+      let users = response.data;
       this.error = "";
 
-      if (
-        this.vModelUserLogin.username === this.users.username &&
-        this.vModelUserPw.password === this.users.password
-      ) {
-        this.loginError = "";
-        alert("Logged In");
-        this.$router.push("manage");
-      } else {
-        this.loginError = "Incorrect Password";
+      let checkUser = users.find(
+        (u) => u.username.toLowerCase() === this.vModelUserLogin.toLowerCase()
+      );
+      console.log(checkUser);
+
+      if (checkUser !== undefined) {
+        if (checkUser.password === this.vModelUserPw) {
+          this.loginError = "";
+          alert("Logged In");
+          this.$router.push("manage");
+        } else {
+          this.loginError = "Incorrect Password";
+          console.log(checkUser.password)
+        }
       }
     },
   },

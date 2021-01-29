@@ -1,5 +1,5 @@
 <template>
-  <div class="container playerName">
+  <div class="container playerName mt-5">
     <br />
     <h1>come on</h1>
     <h2>and</h2>
@@ -36,7 +36,7 @@ export default {
         this.errorMsg = "Please enter 3-12 characters!";
       } else {
         this.$emit("beginGameEvent", (this.gameState="player_turn") ,this.newName);
-        this.$emit("playerInputName", this.name);
+        this.$emit("newPlayerName", this.newName);
         // need to add gameState?
         // need one more line for inputing score
         // this.$emit("playerInputName", this.newName);

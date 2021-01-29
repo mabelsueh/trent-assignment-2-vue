@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="gif">
     <Nav/>
     <router-view></router-view>
   </div>
@@ -14,12 +14,9 @@ export default {
 };
 </script>
 
-<style scoped>
-#app{
+<style>
+.gif{
     min-height: 100vh;
-    
-}
- div {
     background-image: url("https://media.giphy.com/media/f4IjBQupqojhqQzKk2/giphy.gif") !important;
     background-position: center;
     background-repeat: no-repeat;

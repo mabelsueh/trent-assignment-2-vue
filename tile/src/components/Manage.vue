@@ -1,6 +1,11 @@
 <template>
   <div>
     <div class="container">
+    <div>
+    <input type="text" :value="userData.username"/>
+    <input type="number" :value="userData.score"/>
+    <button class="btn btn-warning btn-sm" @click="updateRecord">Update</button>
+    </div>
       <h1 class="mt-4">Leaderboard (Top 20)</h1>
       <b-table-simple class="">
         <b-thead class="header">
@@ -51,7 +56,8 @@ export default {
       playerScoreboard: {
           name: "",
           score: ""
-      }
+      },
+      userData: {}
     };
   },
   created: async function () {
@@ -80,12 +86,18 @@ export default {
       alert("Item deleted");
     },
     editRecord: async function (id) {
-      await axios.patch(
-        "https://mseh-trent-assignment-2.herokuapp.com/scoreboard/" + id + 
-          this.playerScoreboard.name,
-        this.playerScoreboard
-      );
+      let response = await axios.get(
+        "https://mseh-trent-assignment-2.herokuapp.com/scoreboard/" + id 
+      ); this.userData = response.data
+      
     },
+    // updateRecord: async function () {
+    //     // await axios.patch(https://8080-b7315246-f510-4e1a-931e-c953f9f5cf27.ws-us03.gitpod.io/scoreboard/ + this.userData._id, this.userData
+            // )
+            // alert("Updated!")
+        
+    //     console.log(this.userData._id)
+    // }
   },
 };
 </script>

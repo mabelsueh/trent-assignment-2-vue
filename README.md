@@ -38,7 +38,10 @@ Wireframe for the homepage (username input)<br>
 ![alt text](tile/public/images/rm/rmwfinit.png)
 <br>
 Wireframe for the game page<br>
-![alt text](/tile/public/images/rm/rmwfboard.png)
+![alt text](/tile/public/images/rm/rmwfboard.png)<br>
+<br>
+Wireframe for the leaderboard management page<br>
+![alt text](tile/public/images/rm/rmwfmanage.png)
 
 ### Color & Font Choice
 Upon suggestion from my classmates, I decided to use a child-friendly horror theme, 
@@ -59,7 +62,7 @@ The font used is Creepster, and I chose to use it as it is decorative enough wit
 4. Finite State Machine (still under construction)
 
 ## Technologies Used
-- Front End Development: VueJS, CSS, Bootstrap and Bootstrap Vue
+- Front End Development: VueJS, CSS, Bootstrap, Bootstrap Vue and Google Fonts
 - Functionality: VueJS and Javascript
 - Coding Environment: Gitpod and Repl.it
 - Database: MongoDB
@@ -91,6 +94,7 @@ Acknowledgements:
 - [MikeBoStock](https://bost.ocks.org/mike/shuffle/) for the best explanation of the Fisher-Yates Shuffle
 - [LogoMakr](https://logomakr.com/) for the game logo creation platform
 - [Craftpix](https://craftpix.net/freebies/free-monster-2d-game-items/) for the monster images
+- [xponentialdesign](https://giphy.com/gifs/blood-drip-f4IjBQupqojhqQzKk2/links)for the background gif
 
 
 
